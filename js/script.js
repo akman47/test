@@ -51,11 +51,13 @@ var displayRecipe = function(recipe) {
 
     getRecipe(mealId);
 
-    var meal = recipe.meals[0];
-    console.log(meal);
+    // var meal = recipe.meals[0];
+    // console.log(meal);
 
-    var startswithIng = recipe.filter((ingredients) => ingredients.startsWith("strIng"));
-    console.log(startswithIng);
+    
+
+    // var startswithIng = recipe.filter((ingredients) => ingredients.startsWith("strIng"));
+    // console.log(startswithIng);
 
     // var ingredientArr = meal.filter(function(ingredient) {
     //     return ingredient === "strIngredient";
@@ -63,14 +65,14 @@ var displayRecipe = function(recipe) {
 
     //////console.log(ingredientArr);
 
-    // // for (var i = 1; i < 21; i++) {
-    // //     //console.log(recipe.meals[0].(strIngredient+i));
-    // //     console.log("strIngredient"+i);
-    // //     if (recipe.meals[0].strIngredient+i.value !== "") {
-    // //         var ingredients = recipe.meals[0].striIngredient+i;
-    // //         console.log (ingredients);
-    // //     }
-    // // }
+    for (var i = 1; i < 21; i++) {
+        //console.log(recipe.meals[0].(strIngredient+i));
+        console.log("strIngredient"+i);
+        if (recipe.meals[0].strIngredient+i.value !== "") {
+            var ingredients = recipe.meals[0].striIngredient+i;
+            console.log (ingredients);
+        }
+    }
 
     // get instructions from API data
     var instructions = recipe.meals[0].strInstructions;
