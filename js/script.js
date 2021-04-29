@@ -16,31 +16,38 @@ var testEndPoint = function(){
         })
         .then(function(data) {
             console.log(data);  
-            displayRecipes(data);
+            displayRecipe(data);
+            //displayRecipeList(data);
         })
+}
+var displayRecipeList = function (data) {
+    for (var i = 0; i < data.meals.length; i++) {
+        console.log(data.meals[i].strMeal);
 
+        // add text content to heading: Choose a recipe to try!
+
+        // create list links or buttons of options
+    }
 }
 
-var displayRecipes = function(recipes) {
-    console.log(recipes.meals[0]);
-    var mealName = recipes.meals[0].strMeal;
+var displayRecipe = function(recipe) {
+    console.log(recipe.meals[0]);
+    var mealName = recipe.meals[0].strMeal;
     console.log (mealName);
 
-    // for (var i = 1; i < 21; i++) {
-    //     //console.log(recipes.meals[0].(strIngredient+i));
-    //     console.log("strIngredient"+i);
-    //     if (recipes.meals[0].strIngredient+i.value !== "") {
-    //         var index = "strIngredient" + i;
-    //         var ingredients = recipes.meals[0].
-    //         console.log (ingredients);
-    //     }
-    // }
+    for (var i = 1; i < 21; i++) {
+        //console.log(recipe.meals[0].(strIngredient+i));
+        console.log("strIngredient"+i);
+        if (recipe.meals[0].strIngredient+i.value !== "") {
+            var ingredients = recipe.meals[0].striIngredient+i;
+            console.log (ingredients);
+        }
+    }
 
     // get instructions from API data
-    var instructions = recipes.meals[0].strInstructions;
+    var instructions = recipe.meals[0].strInstructions;
     console.log(instructions);
     var paragraphs = instructions.split(".");
-
 
     // display dish title
     recipeTitleEl.textContent = mealName;
@@ -56,15 +63,16 @@ var displayRecipes = function(recipes) {
             instructionsListEl.appendChild(instructions);
         }
 
-      
     // get image from API data
-    var imgSrc = recipes.meals[0].strMealThumb;
+    var imgSrc = recipe.meals[0].strMealThumb;
     var mealImg = document.createElement("img");
     mealImg.setAttribute("src", imgSrc);
     mealImg.setAttribute("width", "300px");
     mealImg.setAttribute("height", "260px");  
     
     resultsContainerEl.appendChild(mealImg);
+
+    // create buttons: save to recipe box or back to list
 };
 
 
