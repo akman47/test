@@ -30,19 +30,47 @@ var displayRecipeList = function (data) {
     }
 }
 
+var getRecipe = function (mealId) {
+    var apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i="
+
+    fetch(apiUrl + mealId)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+        })
+}
+
 var displayRecipe = function(recipe) {
     console.log(recipe.meals[0]);
     var mealName = recipe.meals[0].strMeal;
     console.log (mealName);
+    var mealId = recipe.meals[0].idMeal;
+    console.log(mealId);
 
-    for (var i = 1; i < 21; i++) {
-        //console.log(recipe.meals[0].(strIngredient+i));
-        console.log("strIngredient"+i);
-        if (recipe.meals[0].strIngredient+i.value !== "") {
-            var ingredients = recipe.meals[0].striIngredient+i;
-            console.log (ingredients);
-        }
-    }
+    getRecipe(mealId);
+
+    var meal = recipe.meals[0];
+    console.log(meal);
+
+    var startswithIng = recipe.filter((ingredients) => ingredients.startsWith("strIng"));
+    console.log(startswithIng);
+
+    // var ingredientArr = meal.filter(function(ingredient) {
+    //     return ingredient === "strIngredient";
+    // });
+
+    //////console.log(ingredientArr);
+
+    // // for (var i = 1; i < 21; i++) {
+    // //     //console.log(recipe.meals[0].(strIngredient+i));
+    // //     console.log("strIngredient"+i);
+    // //     if (recipe.meals[0].strIngredient+i.value !== "") {
+    // //         var ingredients = recipe.meals[0].striIngredient+i;
+    // //         console.log (ingredients);
+    // //     }
+    // // }
 
     // get instructions from API data
     var instructions = recipe.meals[0].strInstructions;
