@@ -51,26 +51,26 @@ var displayRecipe = function(recipe) {
 
     getRecipe(mealId);
 
-    // var meal = recipe.meals[0];
-    // console.log(meal);
+    var meal = recipe.meals[0];
+    console.log(meal);
 
-    
+    var ingredientList = [];
+    var measurementList = [];
 
-    // var startswithIng = recipe.filter((ingredients) => ingredients.startsWith("strIng"));
-    // console.log(startswithIng);
-
-    // var ingredientArr = meal.filter(function(ingredient) {
-    //     return ingredient === "strIngredient";
-    // });
-
-    //////console.log(ingredientArr);
-
+    // get ingredients and measurements
     for (var i = 1; i < 21; i++) {
-        //console.log(recipe.meals[0].(strIngredient+i));
-        console.log("strIngredient"+i);
-        if (recipe.meals[0].strIngredient+i.value !== "") {
-            var ingredients = recipe.meals[0].striIngredient+i;
-            console.log (ingredients);
+        var ingredients = recipe.meals[0]["strIngredient"+i];
+        var measurements = recipe.meals[0]["strMeasure"+i];
+        ingredientList.push(ingredients);
+        measurementList.push(measurements);
+    }
+    console.log(ingredientList);
+    console.log(measurementList);
+
+    // display measurements and ingredients
+    for (var i = 0; i < ingredientList.length; i++) {
+        if (ingredientList[i] !== "") {
+            console.log(measurementList[i] + "  " + ingredientList[i]);
         }
     }
 
